@@ -10,6 +10,7 @@ import com.example.mbanking.R
 import com.example.mbanking.api.repository.BankingRepository
 import com.example.mbanking.api.responses.UserResponse
 import com.example.mbanking.database.entities.User
+import com.example.mbanking.enums.TransactionType
 import com.example.mbanking.ui.transactions.TransactionsActivity
 import com.example.mbanking.utils.AppConstants.Companion.CURRENT_USER_PREFERENCE
 import com.example.mbanking.utils.AppConstants.Companion.REGISTER_PREFERENCE
@@ -70,7 +71,7 @@ class RegisterViewModel
                 user.firstName,
                 user.lastName
             )
-        }.subscribeOn(Schedulers.io())
+        }.observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io())
             .doOnComplete {
                 //Set flag for registered user and user id
                 setPreference(getContext(), REGISTER_PREFERENCE, true)

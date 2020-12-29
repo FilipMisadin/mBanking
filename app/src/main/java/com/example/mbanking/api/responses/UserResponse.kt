@@ -46,5 +46,5 @@ data class TransactionsItem(
 	val id: String,
 
 	@SerializedName("type")
-	val type: TransactionType? = null
+	val type: String? = null
 )

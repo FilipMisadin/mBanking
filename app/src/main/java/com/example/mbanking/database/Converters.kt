@@ -1,5 +1,6 @@
 package com.example.mbanking.database
 
+import android.util.Log
 import androidx.room.TypeConverter
 import com.example.mbanking.enums.Currency
 import com.example.mbanking.enums.TransactionType
@@ -14,10 +15,11 @@ class Converters {
     fun fromCurrency(value: Currency) = value.name
 
     @TypeConverter
-    fun toTransactionType(value: String?) = value?.let { enumValueOf<TransactionType>(it) }
+    fun toTransactionType(value: String?)
+            = value?.let { enumValueOf<TransactionType>(it.replace(" ", "_")) }
 
     @TypeConverter
-    fun fromTransactionType(value: TransactionType?) = value?.name
+    fun fromTransactionType(value: TransactionType?) = value?.string
 
     @TypeConverter
     fun fromTimestamp(value: Long?) = value?.let { Date(it) }

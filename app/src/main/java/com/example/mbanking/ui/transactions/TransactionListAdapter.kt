@@ -56,7 +56,7 @@ internal constructor(
             if (transaction.type == null)
                 typeText.text = ""
             else
-                typeText.text = transaction.type.toString()
+                typeText.text = transaction.type.string
         }
 
         init {

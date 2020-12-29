@@ -4,6 +4,7 @@ import com.example.mbanking.api.responses.UserResponse
 import com.example.mbanking.database.entities.Account
 import com.example.mbanking.database.entities.Transaction
 import com.example.mbanking.database.entities.User
+import com.example.mbanking.enums.TransactionType
 
 fun userResponseToUser(userResponse: UserResponse, firstName: String, lastName: String): User {
     return User(userResponse.userId!!.toLong(), firstName, lastName)
@@ -34,7 +35,7 @@ fun userResponseToTransactions(userResponse: UserResponse): List<Transaction> {
                     stringToDate(transaction.date)!!,
                     transaction.description,
                     stringToDouble(transaction.amount),
-                    transaction.type
+                    transaction.type?.let { enumValueOf<TransactionType>(it.replace(" ", "_")) }
                 )
             )
         }
