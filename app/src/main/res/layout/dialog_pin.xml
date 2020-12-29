@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorSecondary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/txtPin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:cursorVisible="true"
+            android:ems="10"
+            android:gravity="center|center_horizontal"
+            android:hint="@string/insert_pin"
+            android:importantForAutofill="no"
+            android:inputType="numberPassword"
+            android:linksClickable="false"
+            android:longClickable="false"
+            android:maxLength="6"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/wrong_pin"
+            android:textColor="@color/colorRed"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/txtPin"
+            app:layout_constraintStart_toStartOf="@+id/txtPin"
+            app:layout_constraintTop_toBottomOf="@+id/txtPin" />
+
+        <LinearLayout
+            android:id="@+id/layoutFirstRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtError">
+
+            <Button
+                android:id="@+id/btnFirst"
+                style="@style/PinButton"
+                android:text="@string/one" />
+
+            <Button
+                android:id="@+id/btnSecond"
+                style="@style/PinButton"
+                android:text="@string/two" />
+
+            <Button
+                android:id="@+id/btnThird"
+                style="@style/PinButton"
+                android:text="@string/three" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutSecondRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutFirstRow">
+
+            <Button
+                android:id="@+id/btnFourth"
+                style="@style/PinButton"
+                android:text="@string/four" />
+
+            <Button
+                android:id="@+id/btnFifth"
+                style="@style/PinButton"
+                android:text="@string/five" />
+
+            <Button
+                android:id="@+id/btnSixth"
+                style="@style/PinButton"
+                android:text="@string/six" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutThirdRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutSecondRow">
+
+            <Button
+                android:id="@+id/btnSeventh"
+                style="@style/PinButton"
+                android:text="@string/seven" />
+
+            <Button
+                android:id="@+id/btnEight"
+                style="@style/PinButton"
+                android:text="@string/eight" />
+
+            <Button
+                android:id="@+id/btnNinth"
+                style="@style/PinButton"
+                android:text="@string/nine" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutFourthRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutThirdRow">
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                style="@style/PinButton"
+                android:contentDescription="@string/delete_image_description"
+                android:layout_gravity="center"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_delete" />
+
+            <Button
+                android:id="@+id/btnTenth"
+                style="@style/PinButton"
+                android:text="@string/zero" />
+
+            <Button
+                android:id="@+id/btnAccept"
+                style="@style/PinButton"
+                android:text="@string/ok" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/layoutProgressBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.5"
+        android:background="@color/colorGrey"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/ProgressBar" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">mBanking</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="placeholder">Placeholder</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="insert_pin">Please insert PIN here…</string>
+    <string name="wrong_pin">You entered wrong PIN, please try again</string>
+    <string name="choose_account">Choose account:</string>
+    <string name="first_name">First name*</string>
+    <string name="last_name">Last name*</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="transactions">Transactions:</string>
+    <string name="accounts">Accounts</string>
+    <string name="logout_message">Are you sure you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="no_internet">There is no internet connection.</string>
+
+    <string name="loading_error">Error loading data</string>
+    <string name="accounts_loading_error">Error loading accounts</string>
+    <string name="saving_error">Error saving data</string>
+
+    <string name="delete_image_description">Delete text</string>
+    <string name="logout_image_description">User logout</string>
+
+    <string name="amount_message">%1$.2f %2$s</string>
+    <string name="transaction_amount">+%1$.2f %2$s</string>
+    <string name="dash_separated_message">%1$s %2$s</string>
+
+    <string name="one" translatable="false">1</string>
+    <string name="two" translatable="false">2</string>
+    <string name="three" translatable="false">3</string>
+    <string name="four" translatable="false">4</string>
+    <string name="five" translatable="false">5</string>
+    <string name="six" translatable="false">6</string>
+    <string name="seven" translatable="false">7</string>
+    <string name="eight" translatable="false">8</string>
+    <string name="nine" translatable="false">9</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="ok" translatable="false">OK</string>
+</resources>
