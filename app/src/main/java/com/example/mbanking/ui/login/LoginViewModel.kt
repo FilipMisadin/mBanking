@@ -18,11 +18,16 @@ class LoginViewModel
     private val repository: BankingRepository
 ) : AndroidViewModel(application), PinDialogInteractor {
     private lateinit var user: LiveData<User>
+    private var loading: MutableLiveData<Boolean> = MutableLiveData()
 
     private fun fetchUser() {
+        loading.postValue(true)
+
         //Get current user id from SharedPreference and use it to get user from database
         val userId = getPreferenceInt(getContext(), AppConstants.CURRENT_USER_PREFERENCE)
         user = repository.getUser(userId)
+
+        loading.postValue(false)
     }
 
     fun getUser(): LiveData<User> {
@@ -33,14 +38,22 @@ class LoginViewModel
         return getApplication<Application>().applicationContext
     }
 
+    fun getLoading(): LiveData<Boolean> {
+        return loading
+    }
+
     init {
         fetchUser()
     }
 
     override fun onAuthentication() {
+        loading.postValue(true)
+
         //If user gave correct pin, start transactions activity
         val transactionsActivity = Intent(getContext(), TransactionsActivity::class.java)
         transactionsActivity.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         getContext().startActivity(transactionsActivity)
+
+        loading.postValue(false)
     }
 }

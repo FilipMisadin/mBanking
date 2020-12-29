@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +21,8 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
     @BindView(R.id.btnLogin) lateinit var loginButton: Button
 
     @BindView(R.id.txtName) lateinit var nameText: TextView
+
+    @BindView(R.id.layoutProgressBar) lateinit var progressBarLayout: FrameLayout
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -44,6 +47,14 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
                 R.string.dash_separated_message, user.firstName,
                 user.lastName
             )
+        })
+
+        //Show progress bar when loading
+        loginViewModel.getLoading().observe(viewLifecycleOwner, Observer { loading ->
+            if (loading)
+                progressBarLayout.visibility = View.VISIBLE
+            else
+                progressBarLayout.visibility = View.INVISIBLE
         })
     }
 
